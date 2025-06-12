@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link
                     href='/'
                     aria-label="Home Page"
-                    className="font-black text-xl tracking-tight"
+                    className="font-bold text-xl tracking-tight"
                 >
                     RemoteCraft
                 </Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
                                 key={link.label}
                                 href={link.link}
                                 aria-label={`${link.label} Page`}
-                                className="font-medium hover:border-b hover:border-foreground"
+                                className="font-normal hover:border-b hover:border-foreground"
                             >
                                 {link.label}
                             </Link>

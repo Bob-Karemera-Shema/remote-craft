@@ -8,7 +8,7 @@
   --hover-gray: #e2e3e8;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--white);
   --color-foreground: var(--black);
   --color-custom-gray: var(--gray);

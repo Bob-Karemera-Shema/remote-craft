@@ -3,17 +3,15 @@ import Navbar from "./Navbar";
 
 const workSans = Work_Sans({
     subsets: ['latin']
-})
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={`${workSans.className} antialiased`}>
+        <main className={workSans.className}>
             <header>
                 <Navbar />
             </header>
-            <body>
-                {children}
-            </body>
-        </html>
+            {children}
+        </main>
     )
 }
