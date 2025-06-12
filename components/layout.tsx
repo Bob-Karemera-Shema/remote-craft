@@ -7,9 +7,11 @@ const workSans = Work_Sans({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={workSans.className}>
-            <body>
+        <html lang="en" className={`${workSans.className} antialiased`}>
+            <header>
                 <Navbar />
+            </header>
+            <body>
                 {children}
             </body>
         </html>
