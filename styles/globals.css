@@ -10,7 +10,7 @@
 @theme inline {
   --color-background: var(--white);
   --color-foreground: var(--black);
-  --color-border-bg: var(--gray);
+  --color-custom-gray: var(--gray);
 }
 
 /* @media (prefers-color-scheme: dark) {

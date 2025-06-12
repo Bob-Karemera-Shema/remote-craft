@@ -21,7 +21,7 @@ const navLinks = [
 
 const Navbar = () => {
     return (
-        <nav className="flex flex-col md:flex-row md:justify-between py-5 px-12 md:border md:border-solid md:border-border-bg">
+        <nav className="flex flex-col md:flex-row md:justify-between py-5 px-12 md:border md:border-solid md:border-custom-gray">
             <div className="flex gap-10 items-center">
                 {/* Navigation Links */}
                 <Link
@@ -51,7 +51,9 @@ const Navbar = () => {
                     {/* Searchbar container */}
                     <input
                         type="search"
-                        placeholder="Search" />
+                        placeholder="Search"
+                        className="bg-custom-gray py-1.5 px-3 rounded-md"
+                    />
                 </div>
                 <div className="flex">
                     {/* Bookmark and settings container */}
