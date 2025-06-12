@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { BiSolidCylinder } from "react-icons/bi";
 import Searchbar from "./Searchbar"
 
 const navLinks = [
@@ -28,9 +29,10 @@ const Navbar = () => {
                 <Link
                     href='/'
                     aria-label="Home Page"
-                    className="font-bold text-xl tracking-tight"
+                    className="font-bold text-xl tracking-tight flex gap-4 items-center"
                 >
-                    RemoteCraft
+                    <BiSolidCylinder />
+                    <span>RemoteCraft</span>
                 </Link>
                 <div className="flex flex-col md:flex-row gap-10 items-center">
                     {
@@ -39,7 +41,7 @@ const Navbar = () => {
                                 key={link.label}
                                 href={link.link}
                                 aria-label={`${link.label} Page`}
-                                className="font-normal hover:border-b hover:border-foreground"
+                                className="font-normal hover:border-b hover:border-foreground transition duration-100 ease-in-out"
                             >
                                 {link.label}
                             </Link>
