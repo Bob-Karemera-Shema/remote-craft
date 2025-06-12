@@ -5,12 +5,14 @@
   --black: #000000;
   --gray: #F0F2F5;
   --blue: #1A80E5;
+  --hover-gray: #e2e3e8;
 }
 
 @theme inline {
   --color-background: var(--white);
   --color-foreground: var(--black);
   --color-custom-gray: var(--gray);
+  --color-hover-gray: var(--hover-gray);
 }
 
 /* @media (prefers-color-scheme: dark) {
