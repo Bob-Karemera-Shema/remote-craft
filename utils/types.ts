@@ -14,7 +14,7 @@ export interface Job {
     company_logo_url: string;
 }
 
-export interface IApiResponse {
+export interface ApiResponse {
     "00-warning": string;
     "0-legal-notice": string;
     "job-count": number;

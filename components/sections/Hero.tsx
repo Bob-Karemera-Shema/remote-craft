@@ -12,6 +12,7 @@ const Hero = () => {
                     height={673}
                     alt="Hero image"
                     className="md:rounded-xl h-full w-full object-cover"
+                    priority
                 />
                 <div className="absolute bottom-10 left-6 px-4 md:px-0">
                     <h1 className="font-black text-4xl text-background mb-4">Find your next remote job</h1>
