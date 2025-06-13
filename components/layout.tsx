@@ -1,5 +1,5 @@
 import { Work_Sans } from "next/font/google";
-import Navbar from "./Navbar";
+import Navbar from "./shared/Navbar";
 
 const workSans = Work_Sans({
     subsets: ['latin']

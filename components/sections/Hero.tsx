@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SlMagnifier } from "react-icons/sl";
-import { MainButton } from "./Button";
+import { MainButton } from "../shared/Button";
 
 const Hero = () => {
     return (
