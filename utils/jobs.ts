@@ -13,7 +13,7 @@ export async function getJobs() {
 
 export async function getJobIds() {
     const jobs = await getJobs();
-    return jobs.map(job => ({ params: { id: job.id.toString() } }));
+    return jobs.map(job => ({ params: { id: (job.id).toString() } }));
 }
 
 export async function getJobById(id: number) {

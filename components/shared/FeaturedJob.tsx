@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Job } from "@/utils/types"
 import { AlternativeButton } from "./Button";
+import Link from "next/link";
 
 const FeaturedJob = ({ job }: { job: Job }) => {
     return (
@@ -19,9 +20,11 @@ const FeaturedJob = ({ job }: { job: Job }) => {
                     <p className="text-minor-details">{`${job.salary}`}</p>
                 </div>
             </div>
-            <AlternativeButton className="h-max py-1.5 px-3">
-                View
-            </AlternativeButton>
+            <Link href={`/jobs/${job.id}`} aria-label={`${job.title} job page`}>
+                <AlternativeButton className="h-max py-1.5 px-3">
+                    View
+                </AlternativeButton>
+            </Link>
         </div>
     )
 }
