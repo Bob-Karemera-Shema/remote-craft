@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async () => {
   let jobs: Job[];
 
   try {
-    const data: ApiResponse = await fetch('https://remotive.com/api/remote-jobs?limit=10').then(res => res.json());
+    const data: ApiResponse = await fetch('https://remotive.com/api/remote-jobs').then(res => res.json());
     jobs = data.jobs;
   } catch(err) {
     const message = err instanceof Error ? err.message : 'Unknown Error';
