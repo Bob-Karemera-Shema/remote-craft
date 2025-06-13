@@ -7,6 +7,8 @@
   --hover-gray: #e2e3e8;
   --blue: #1A80E5;
   --hover-blue: #1a75cf;
+  --logo-background: #e27f42;
+  --minor-details: #545454;
 }
 
 @theme {
@@ -16,6 +18,8 @@
   --color-hover-blue: var(--hover-blue);
   --color-custom-gray: var(--gray);
   --color-hover-gray: var(--hover-gray);
+  --color-logo-background: var(--logo-background);
+  --color-minor-details: var(--minor-details);
 }
 
 /* @media (prefers-color-scheme: dark) {
