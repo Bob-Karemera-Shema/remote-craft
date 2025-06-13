@@ -4,22 +4,14 @@ import Hero from "@/components/sections/Hero";
 import Layout from "@/components/Layout";
 import FeaturedJobs from "@/components/sections/FeaturedJobs";
 import { ApiResponse, Job } from "@/utils/types";
+import { getJobs } from "@/utils/jobs";
 
 interface HomeProps {
   jobs: Job[]
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  let jobs: Job[];
-
-  try {
-    const data: ApiResponse = await fetch('https://remotive.com/api/remote-jobs').then(res => res.json());
-    jobs = data.jobs;
-  } catch(err) {
-    const message = err instanceof Error ? err.message : 'Unknown Error';
-    console.error('Error fetching jobs: ', message);
-    throw new Error(message);
-  }
+  const jobs = await getJobs();
 
   return {
     props: { jobs },
