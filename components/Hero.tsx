@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SlMagnifier } from "react-icons/sl";
+import { MainButton } from "./Button";
 
 const Hero = () => {
     return (
@@ -8,19 +9,25 @@ const Hero = () => {
                 <Image
                     src='/hero-image.jpeg'
                     width={1200}
-                    height={904}
+                    height={673}
                     alt="Hero image"
-                    className="rounded-xl h-full w-full object-cover"
+                    className="md:rounded-xl h-full w-full object-cover"
                 />
-                <div className="absolute bottom-6 left-6">
-                    <h1 className="font-black text-4xl text-background">Find your next remote job</h1>
-                    <form>
-                        <SlMagnifier />
+                <div className="absolute bottom-10 left-6 px-4 md:px-0">
+                    <h1 className="font-black text-4xl text-background mb-4">Find your next remote job</h1>
+                    <form className="flex items-center bg-background w-max py-2 px-2 gap-4 rounded-xl">
+                        <SlMagnifier className="ml-2" />
                         <input
                             type="search"
                             placeholder="Search for jobs"
+                            className="outline-none"
                         />
-                        <button type="submit">Search</button>
+                        <MainButton
+                            type="submit"
+                            className="py-2 px-4"
+                        >
+                            Search
+                        </MainButton>
                     </form>
                 </div>
             </div>
