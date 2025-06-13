@@ -3,7 +3,7 @@ import type { Job } from "@/utils/types"
 import { AlternativeButton } from "./Button";
 import Link from "next/link";
 
-const FeaturedJob = ({ job }: { job: Job }) => {
+const ListedJob = ({ job }: { job: Job }) => {
     return (
         <div className="w-full flex justify-between mb-4">
             <div className="flex items-center gap-4">
@@ -29,4 +29,4 @@ const FeaturedJob = ({ job }: { job: Job }) => {
     )
 }
 
-export default FeaturedJob;
+export default ListedJob;

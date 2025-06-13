@@ -1,21 +1,28 @@
 import { useEffect, useRef, useState } from "react";
 import { Job } from "@/utils/types";
-import FeaturedJob from "../shared/FeaturedJob";
+import ListedJob from "../shared/ListedJob";
 
 // Number of jobs to display per scroll "page"
 const BATCH_SIZE = 10;
 
-const FeaturedJobs = ({ jobs }: { jobs: Job[] }) => {
+interface JobListProps {
+    jobs?: Job[];
+    infiniteScroll?: boolean;
+}
+
+const JobList = ({ jobs = [], infiniteScroll = true }: JobListProps) => {
     // State to hold the currently visible batch of jobs
-    const [visibleJobs, setVisibleJobs] = useState<Job[]>(jobs.slice(0, BATCH_SIZE));
+    const [visibleJobs, setVisibleJobs] = useState<Job[]>(infiniteScroll ? jobs.slice(0, BATCH_SIZE) : jobs);
 
     // Index to keep track of how many jobs we've revealed so far
-    const [currentIndex, setCurrentIndex] = useState(BATCH_SIZE);
+    const [currentIndex, setCurrentIndex] = useState(infiniteScroll ? BATCH_SIZE : jobs.length);
 
     // Ref for the div that acts as a scroll trigger at the bottom of the list
     const loaderRef = useRef<HTMLDivElement | null>(null);
 
     useEffect(() => {
+        if (!infiniteScroll) return;
+
         // Create a new IntersectionObserver that watches when the loader div enters the viewport
         const observer = new IntersectionObserver(
             (entries) => {
@@ -41,18 +48,15 @@ const FeaturedJobs = ({ jobs }: { jobs: Job[] }) => {
     }, [currentIndex, jobs]);
 
     return (
-        <section className="w-full mt-2.5">
-            <h2 className="font-bold text-2xl tracking-tighter mb-4">Featured Jobs</h2>
-            <article className="w-full">
-                {
-                    visibleJobs.map(job => (
-                        <FeaturedJob key={job.id} job={job} />
-                    ))
-                }
-                <div ref={loaderRef} />
-            </article>
+        <section className="w-full">
+            {
+                visibleJobs.map(job => (
+                    <ListedJob key={job.id} job={job} />
+                ))
+            }
+            {infiniteScroll && <div ref={loaderRef} />}
         </section>
     )
 }
 
-export default FeaturedJobs;
+export default JobList;

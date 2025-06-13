@@ -1,3 +1,4 @@
+import { slugify } from "./slugify";
 import { ApiResponse } from "./types";
 
 export async function getJobs() {
@@ -19,6 +20,24 @@ export async function getJobIds() {
 export async function getJobById(id: number) {
     const jobs = await getJobs();
     return jobs.find(job => job.id === id);
+}
+
+export async function getCompanyNames() {
+    const jobs = await getJobs();
+    const companyNames = new Set<string>();
+
+    jobs.forEach(job => {
+        if(job.company_name) {
+            companyNames.add(job.company_name.trim());
+        }
+    });
+
+    return Array.from(companyNames);
+}
+
+export async function getSlugifiedCompanyNames() {
+    const names = await getCompanyNames();    
+    return names.map(name => ({ params: { slug: slugify(name) } }))
 }
 
 export async function getJobsByCompany(companyName: string) {

@@ -4,18 +4,13 @@ import { Job } from "@/utils/types";
 import { getJobById, getJobIds } from "@/utils/jobs";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { AlternativeButton, MainButton } from "@/components/shared/Button";
-import DOMPurify from "dompurify";
 import { decodeEscapedHtml } from "@/utils/html";
 
 interface SingleJobProps {
   job: Job
 }
 
-interface Params extends Record<string, string> {
-  id: string;
-}
-
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await getJobIds();
 
   return {
@@ -24,7 +19,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   };
 }
 
-export const getStaticProps: GetStaticProps<SingleJobProps, Params> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<SingleJobProps> = async ({ params }) => {
   if (!params?.id) return { notFound: true };
 
   const job = await getJobById(Number(params.id));
@@ -42,14 +37,8 @@ export default function SingleJob({ job }: SingleJobProps) {
   // 1. decode the escaped HTML
   const decodedHtml = decodeEscapedHtml(job.description);
 
-  // 2. sanitize it
-  // const safeHtml = DOMPurify.sanitize(decodedHtml);
-
   return (
     <Layout>
-      <Head>
-        <title>RemoteCraft</title>
-      </Head>
       <section className="w-full md:px-8 lg:px-48 mb-16 flex flex-col gap-8.5">
         <article className="w-full flex justify-between items-start mt-12">
           <div>
