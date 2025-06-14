@@ -22,6 +22,26 @@
   --color-minor-details: var(--minor-details);
 }
 
+@layer components {
+  .btn-primary {
+    background-color: var(--color-custom-blue);
+    color: var(--color-background);
+
+    &:hover {
+      background-color: var(--color-hover-blue);
+    }
+  }
+
+  .btn-secondary {
+    background-color: var(--color-custom-gray);
+    color: var(--color-foreground);
+
+    &:hover {
+      background-color: var(--color-hover-gray);
+    }
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

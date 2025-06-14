@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SlMagnifier } from "react-icons/sl";
-import { MainButton } from "../shared/Button";
+import Button from "../shared/Button";
 
 const Hero = () => {
     return (
@@ -23,12 +23,12 @@ const Hero = () => {
                             placeholder="Search for jobs"
                             className="outline-none"
                         />
-                        <MainButton
+                        <Button
                             type="submit"
                             className="py-2 px-4"
                         >
                             Search
-                        </MainButton>
+                        </Button>
                     </form>
                 </div>
             </div>

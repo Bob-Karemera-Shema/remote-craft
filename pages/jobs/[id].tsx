@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { Job } from "@/utils/types";
 import { getJobById, getJobIds } from "@/utils/jobs";
 import { decodeEscapedHtml } from "@/utils/html";
-import { AlternativeButton, MainButton } from "@/components/shared/Button";
+import Button from "@/components/shared/Button";
 import Layout from "@/components/Layout";
 import Spinner from "@/components/shared/Spinner";
 
@@ -53,7 +53,7 @@ export default function SingleJob({ job }: SingleJobProps) {
             <h1 className="text-4xl font-black mb-4">{job.title}</h1>
             <p className="text-minor-details">{`at ${job.company_name}`}</p>
           </div>
-          <AlternativeButton className="py-2 px-4 rounded-xl">Save job</AlternativeButton>
+          <Button className="btn-secondary py-2 px-4 rounded-xl">Save job</Button>
         </article>
 
         <article className="flex flex-col gap-6">
@@ -110,8 +110,8 @@ export default function SingleJob({ job }: SingleJobProps) {
           </div>
         </article>
         <article className="flex justify-end gap-4">
-          <MainButton className="py-2 px-6 rounded-xl">Apply now</MainButton>
-          <AlternativeButton className="py-2 px-6 rounded-xl">Message company</AlternativeButton>
+          <Button className="py-2 px-6 rounded-xl">Apply now</Button>
+          <Button variant="secondary" className="py-2 px-6 rounded-xl">Message company</Button>
         </article>
       </section>
     </Layout>

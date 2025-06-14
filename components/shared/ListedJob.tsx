@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Job } from "@/utils/types"
-import { AlternativeButton } from "./Button";
+import Button from "./Button";
 import Link from "next/link";
 
 const ListedJob = ({ job }: { job: Job }) => {
@@ -21,9 +21,9 @@ const ListedJob = ({ job }: { job: Job }) => {
                 </div>
             </div>
             <Link href={`/jobs/${job.id}`} aria-label={`${job.title} job page`}>
-                <AlternativeButton className="h-max py-1.5 px-3">
+                <Button variant="secondary" className="h-max py-1.5 px-3">
                     View
-                </AlternativeButton>
+                </Button>
             </Link>
         </div>
     )

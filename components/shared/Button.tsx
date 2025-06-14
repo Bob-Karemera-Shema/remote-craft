@@ -1,12 +1,28 @@
 import { ButtonHTMLAttributes, FC, PropsWithChildren } from "react";
+import clsx from "clsx";
 
-type ButtonProps = PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>;
+interface ButtonProps extends PropsWithChildren<ButtonHTMLAttributes<HTMLButtonElement>>{
+    variant?: 'primary' | 'secondary';
+}
 
-export const MainButton: FC<ButtonProps> = ({ children, className = '', ...props }) => {
+const Button: FC<ButtonProps> = ({
+    children,
+    className = '',
+    variant = 'primary',
+    type = 'button',
+    ...props
+}) => {
     return (
         <button
-            type="submit"
-            className={`bg-custom-blue text-background font-medium rounded-md transition duration-200 ease-in-out hover:bg-hover-blue cursor-pointer ${className}`}
+            type={type}
+            className={clsx(
+                'font-medium rounded-md transition duration-200 ease-in-out cursor-pointer',
+                {
+                    'btn-primary': variant === 'primary',
+                    'btn-secondary': variant === 'secondary'
+                },
+                className
+            )}
             {...props}
         >
             {children}
@@ -14,14 +30,4 @@ export const MainButton: FC<ButtonProps> = ({ children, className = '', ...props
     )
 }
 
-export const AlternativeButton: FC<ButtonProps> = ({ children, className = '', ...props }) => {
-    return (
-        <button
-            type="submit"
-            className={`bg-custom-gray text-foreground font-medium rounded-md transition duration-200 ease-in-out hover:bg-hover-gray cursor-pointer ${className}`}
-            {...props}
-        >
-            {children}
-        </button>
-    )
-}
+export default Button;
