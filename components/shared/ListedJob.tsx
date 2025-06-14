@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const ListedJob = ({ job }: { job: Job }) => {
     return (
-        <div className="w-full flex justify-between mb-4">
-            <div className="flex items-center gap-4">
+        <div className="w-full flex justify-between md:items-center gap-4 mb-4 border-b-1 border-custom-gray pb-4">
+            <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <div className="h-16 w-16 p-1.5 rounded-md border border-hover-gray">
                     <Image
                         src={job.company_logo}

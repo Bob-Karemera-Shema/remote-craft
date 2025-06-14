@@ -48,7 +48,7 @@ const JobList = ({ jobs = [], infiniteScroll = true }: JobListProps) => {
     }, [currentIndex, jobs]);
 
     return (
-        <section className="w-full">
+        <section className="w-full px-6 md:px-0">
             {
                 visibleJobs.map(job => (
                     <ListedJob key={job.id} job={job} />

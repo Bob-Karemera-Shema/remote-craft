@@ -32,7 +32,7 @@ export default function Home({ jobs }: HomeProps) {
     <Layout>
       <section className="w-full md:px-8 lg:px-48 mb-16">
         <Hero />
-        <h2 className="font-bold text-2xl tracking-tighter mt-2.5 mb-8">Featured Jobs</h2>
+        <h2 className="font-bold text-2xl tracking-tighter mt-2.5 mb-8 px-6 md:px-0">Featured Jobs</h2>
         <JobList jobs={jobs} />
       </section>
     </Layout>

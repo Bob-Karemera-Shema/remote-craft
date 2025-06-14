@@ -47,13 +47,13 @@ export default function SingleJob({ job }: SingleJobProps) {
 
   return (
     <Layout>
-      <section className="w-full md:px-8 lg:px-48 mb-16 flex flex-col gap-8.5">
-        <article className="w-full flex justify-between items-start mt-12">
-          <div>
+      <section className="w-full px-6 md:px-8 lg:px-48 mb-16 flex flex-col gap-8.5">
+        <article className="w-full flex flex-col md:flex-row justify-between items-start gap-6 mt-12">
+          <div className="order-2 md:order-1">
             <h1 className="text-4xl font-black mb-4">{job.title}</h1>
             <p className="text-minor-details">{`at ${job.company_name}`}</p>
           </div>
-          <Button className="btn-secondary py-2 px-4 rounded-xl">Save job</Button>
+          <Button className="btn-secondary py-2 px-4 rounded-xl text-nowrap order-1 md:order-2">Save job</Button>
         </article>
 
         <article className="flex flex-col gap-6">
@@ -90,7 +90,6 @@ export default function SingleJob({ job }: SingleJobProps) {
         </article>
 
         <article>
-          <h3 className="font-bold text-lg mb-4">About the role</h3>
           <div dangerouslySetInnerHTML={{ __html: decodedHtml }} />
         </article>
 
@@ -109,7 +108,7 @@ export default function SingleJob({ job }: SingleJobProps) {
             }
           </div>
         </article>
-        <article className="flex justify-end gap-4">
+        <article className="flex justify-end gap-4 flex-wrap">
           <Button className="py-2 px-6 rounded-xl">Apply now</Button>
           <Button variant="secondary" className="py-2 px-6 rounded-xl">Message company</Button>
         </article>

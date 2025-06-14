@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { BiSolidCylinder } from "react-icons/bi";
+import { IoIosMenu } from "react-icons/io";
 import Searchbar from "./Searchbar"
 
 const navLinks = [
@@ -23,7 +24,7 @@ const navLinks = [
 
 const Navbar = () => {
     return (
-        <nav className="flex flex-col md:flex-row md:justify-between py-4 px-12 md:border md:border-solid md:border-custom-gray">
+        <nav className="flex flex-row justify-between items-center py-4 px-12 shadow-sm">
             <div className="flex gap-10 items-center">
                 {/* Navigation Links */}
                 <Link
@@ -34,7 +35,7 @@ const Navbar = () => {
                     <BiSolidCylinder />
                     <span>RemoteCraft</span>
                 </Link>
-                <div className="flex flex-col md:flex-row gap-10 items-center">
+                <div className="hidden md:flex gap-10 items-center">
                     {
                         navLinks.map(link => (
                             <Link
@@ -49,7 +50,7 @@ const Navbar = () => {
                     }
                 </div>
             </div>
-            <div className="flex gap-8 items-center">
+            <div className="hidden lg:flex gap-8 items-center">
                 <div>
                     {/* Searchbar container */}
                     <Searchbar />
@@ -89,6 +90,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <IoIosMenu className="h-8 w-8 md:hidden" />
         </nav>
     )
 }

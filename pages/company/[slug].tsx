@@ -80,7 +80,7 @@ export default function Company({ jobs, companyName }: CompanyProps) {
     return (
         <Layout>
             <section className="w-full md:px-8 lg:px-48 mt-8 mb-16">
-                <h1 className="font-bold text-4xl mb-8 pb-8 border-b-2 border-custom-gray">{`Open Roles at ${companyName}`}</h1>
+                <h1 className="font-bold text-4xl mb-8 pb-8 px-6 md:px-0">{`Open Roles at ${companyName}`}</h1>
                 <JobList jobs={jobs} infiniteScroll={false} />
             </section>
         </Layout>
