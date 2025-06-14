@@ -1,10 +1,11 @@
-import Head from "next/head";
-import Layout from "@/components/Layout";
+import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { Job } from "@/utils/types";
 import { getJobById, getJobIds } from "@/utils/jobs";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { AlternativeButton, MainButton } from "@/components/shared/Button";
 import { decodeEscapedHtml } from "@/utils/html";
+import { AlternativeButton, MainButton } from "@/components/shared/Button";
+import Layout from "@/components/Layout";
+import Spinner from "@/components/shared/Spinner";
 
 interface SingleJobProps {
   job: Job
@@ -34,6 +35,13 @@ export const getStaticProps: GetStaticProps<SingleJobProps> = async ({ params })
 }
 
 export default function SingleJob({ job }: SingleJobProps) {
+  // Check fallback state to show loading spinner
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <Spinner />
+  }
+
   // 1. decode the escaped HTML
   const decodedHtml = decodeEscapedHtml(job.description);
 

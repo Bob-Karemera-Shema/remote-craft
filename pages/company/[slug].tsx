@@ -1,10 +1,11 @@
-import Head from "next/head";
-import Layout from "@/components/Layout";
+import { useRouter } from "next/router";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { Job } from "@/utils/types";
 import { getCompanyNames, getJobsByCompany, getSlugifiedCompanyNames } from "@/utils/jobs";
-import { GetStaticPaths, GetStaticProps } from "next";
 import { deslugify, slugify } from "@/utils/slugify";
+import Layout from "@/components/Layout";
 import JobList from "@/components/sections/JobList";
+import Spinner from "@/components/shared/Spinner";
 
 interface CompanyProps {
     companyName: string
@@ -69,6 +70,13 @@ export const getStaticProps: GetStaticProps<CompanyProps, Params> = async ({ par
 }
 
 export default function Company({ jobs, companyName }: CompanyProps) {
+    // Check fallback state to show loading spinner
+    const router = useRouter();
+
+    if(router.isFallback) {
+        return <Spinner />
+    }
+
     return (
         <Layout>
             <section className="w-full md:px-8 lg:px-48 mt-8 mb-16">

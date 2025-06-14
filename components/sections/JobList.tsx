@@ -6,7 +6,7 @@ import ListedJob from "../shared/ListedJob";
 const BATCH_SIZE = 10;
 
 interface JobListProps {
-    jobs?: Job[];
+    jobs: Job[];
     infiniteScroll?: boolean;
 }
 
