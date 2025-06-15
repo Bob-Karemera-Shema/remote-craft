@@ -4,15 +4,42 @@
   --white: #ffffff;
   --black: #000000;
   --gray: #F0F2F5;
-  --blue: #1A80E5;
   --hover-gray: #e2e3e8;
+  --blue: #1A80E5;
+  --hover-blue: #1a75cf;
+  --logo-background: #e27f42;
+  --minor-details: #545454;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--white);
   --color-foreground: var(--black);
+  --color-custom-blue: var(--blue);
+  --color-hover-blue: var(--hover-blue);
   --color-custom-gray: var(--gray);
   --color-hover-gray: var(--hover-gray);
+  --color-logo-background: var(--logo-background);
+  --color-minor-details: var(--minor-details);
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--color-custom-blue);
+    color: var(--color-background);
+
+    &:hover {
+      background-color: var(--color-hover-blue);
+    }
+  }
+
+  .btn-secondary {
+    background-color: var(--color-custom-gray);
+    color: var(--color-foreground);
+
+    &:hover {
+      background-color: var(--color-hover-gray);
+    }
+  }
 }
 
 /* @media (prefers-color-scheme: dark) {

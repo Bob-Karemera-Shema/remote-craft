@@ -1,19 +1,21 @@
 import { Work_Sans } from "next/font/google";
-import Navbar from "./Navbar";
+import Head from "next/head";
+import Navbar from "./shared/Navbar";
 
 const workSans = Work_Sans({
     subsets: ['latin']
-})
+});
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={`${workSans.className} antialiased`}>
+        <main className={workSans.className}>
+            <Head>
+                <title>RemoteCraft</title>
+            </Head>
             <header>
                 <Navbar />
             </header>
-            <body>
-                {children}
-            </body>
-        </html>
+            {children}
+        </main>
     )
 }

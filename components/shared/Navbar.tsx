@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { BiSolidCylinder } from "react-icons/bi";
+import { IoIosMenu } from "react-icons/io";
 import Searchbar from "./Searchbar"
 
 const navLinks = [
@@ -22,24 +24,25 @@ const navLinks = [
 
 const Navbar = () => {
     return (
-        <nav className="flex flex-col md:flex-row md:justify-between py-4 px-12 md:border md:border-solid md:border-custom-gray">
+        <nav className="flex flex-row justify-between items-center py-4 px-12 shadow-sm">
             <div className="flex gap-10 items-center">
                 {/* Navigation Links */}
                 <Link
                     href='/'
                     aria-label="Home Page"
-                    className="font-black text-xl tracking-tight"
+                    className="font-bold text-xl tracking-tight flex gap-4 items-center"
                 >
-                    RemoteCraft
+                    <BiSolidCylinder />
+                    <span>RemoteCraft</span>
                 </Link>
-                <div className="flex flex-col md:flex-row gap-10 items-center">
+                <div className="hidden md:flex gap-10 items-center">
                     {
                         navLinks.map(link => (
                             <Link
                                 key={link.label}
                                 href={link.link}
                                 aria-label={`${link.label} Page`}
-                                className="font-medium hover:border-b hover:border-foreground"
+                                className="font-normal hover:border-b hover:border-foreground transition duration-100 ease-in-out"
                             >
                                 {link.label}
                             </Link>
@@ -47,7 +50,7 @@ const Navbar = () => {
                     }
                 </div>
             </div>
-            <div className="flex gap-8 items-center">
+            <div className="hidden lg:flex gap-8 items-center">
                 <div>
                     {/* Searchbar container */}
                     <Searchbar />
@@ -87,6 +90,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </div>
+            <IoIosMenu className="h-8 w-8 md:hidden" />
         </nav>
     )
 }
