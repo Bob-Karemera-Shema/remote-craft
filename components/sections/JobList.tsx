@@ -45,7 +45,7 @@ const JobList = ({ jobs = [], infiniteScroll = true }: JobListProps) => {
         return () => {
             if (currentLoader) observer.unobserve(currentLoader);
         };
-    }, [currentIndex, jobs]);
+    }, [currentIndex, infiniteScroll, jobs]);
 
     return (
         <section className="w-full px-6 md:px-0">

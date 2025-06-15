@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { GetStaticProps } from "next";
 import Hero from "@/components/sections/Hero";
 import Layout from "@/components/Layout";
